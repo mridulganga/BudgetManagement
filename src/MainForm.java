@@ -49,6 +49,9 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -168,6 +171,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         loadTrans();
+
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
@@ -204,6 +208,10 @@ int res = JOptionPane.showConfirmDialog(null, "Sure you wish to delete this Tran
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new NetTransForm().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+    loadTrans();
+    }//GEN-LAST:event_formWindowActivated
 
     
     private void loadTrans()
@@ -269,6 +277,7 @@ int res = JOptionPane.showConfirmDialog(null, "Sure you wish to delete this Tran
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainForm().setVisible(true);
+                        DBC.firstRun();
             }
         });
     }

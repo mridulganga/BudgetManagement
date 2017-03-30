@@ -84,7 +84,7 @@ public class DBC {
             "remark varchar(500), date varchar(10), amount int(5), shared varchar(300));";
         DBC.ExecuteSQL(con, sql);
         
-        sql="dues (id int(20) primary key, payee varchar(20), tpay varchar(20), amount int(5));";
+        sql="create table if not exists dues (id int(20) primary key, payee varchar(20), tpay varchar(20), amount int(5));";
         DBC.ExecuteSQL(con, sql);
         
         DBC.DisconnectDB(con);
